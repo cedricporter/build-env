@@ -13,4 +13,18 @@ if [ ! -f "emacs-24.3.tar.gz" ]; then
     wget http://ftpmirror.gnu.org/emacs/emacs-24.3.tar.gz
 fi
 tar zxvf emacs-24.3.tar.gz
-(cd emacs-24.3 && ./configure --prefix=$HOME/local --with-xpm=no --with-gif=no && make -j4)
+if [ ! -f "$HOME/local/bin/emacs" ]; then
+    (cd emacs-24.3 && ./configure --prefix=$HOME/local --with-xpm=no --with-gif=no && make -j4 && make install)
+fi    
+
+# tmux
+if [ ! -f "tmux-1.8.tar.gz" ]; then
+    wget http://downloads.sourceforge.net/tmux/tmux-1.8.tar.gz
+fi
+tar zxvf tmux-1.8.tar.gz
+
+
+cd ~
+git clone https://github.com/cedricporter/vim-emacs-setting.git
+
+
