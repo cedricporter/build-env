@@ -2,7 +2,7 @@
 
 prefix = $(HOME)/local
 
-all: emacs tmux config ohmyzsh htop 
+all: emacs tmux config ohmyzsh pip
 
 test:
 	echo $(prefix)
@@ -22,9 +22,6 @@ config:
 ohmyzsh:
 	wget --no-check-certificate https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh
 
-htop:
-	apt-get source htop
-
 python27:
 	(cd software &&\
 	wget http://www.python.org/ftp/python/2.7.5/Python-2.7.5.tgz &&\
@@ -39,10 +36,12 @@ setuptools:
 	cd setuptools-1.1.6 &&\
 	python setup.py install)
 
-pip: setuptools
+pip: python27 setuptools
 	(cd software &&\
 	wget --no-check-certificate https://pypi.python.org/packages/source/p/pip/pip-1.4.1.tar.gz &&\
 	tar zxvf pip-1.4.1.tar.gz &&\
 	cd pip-1.4.1 &&\
 	python setup.py install)
 
+trash-cli:
+	pip install trash-cli
