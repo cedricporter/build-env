@@ -13,4 +13,4 @@ if [ ! -f "emacs-24.3.tar.gz" ]; then
     wget http://ftpmirror.gnu.org/emacs/emacs-24.3.tar.gz
 fi
 tar zxvf emacs-24.3.tar.gz
-(cd emacs-24.3 && ./configure --prefix=$HOME/local && make -j4)
+(cd emacs-24.3 && ./configure --prefix=$HOME/local --with-xpm=no --with-gif=no && make -j4)
