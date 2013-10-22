@@ -15,6 +15,11 @@ tmux:
 	sh tmux_local_install.sh
 
 config:
-	git clone https://github.com/cedricporter/vim-emacs-setting.git
+	(cd $(HOME) && git clone https://github.com/cedricporter/vim-emacs-setting.git)
+
+ohmyzsh:
+	wget --no-check-certificate https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh
+
+
 
 
