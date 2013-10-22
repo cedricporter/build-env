@@ -34,7 +34,7 @@ python27:
 
 pip:
 	(cd software &&\
-	wget https://pypi.python.org/packages/source/p/pip/pip-1.4.1.tar.gz &&\
+	wget --no-check-certificate https://pypi.python.org/packages/source/p/pip/pip-1.4.1.tar.gz &&\
 	tar zxvf pip-1.4.1.tar.gz &&\
 	cd pip-1.4.1 &&\
 	python setup.py install)
