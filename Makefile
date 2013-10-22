@@ -32,9 +32,17 @@ python27:
 	cd Python-2.7.5 &&\
 	./configure --prefix="$(prefix)" && make -j4 && make install)
 
-pip:
+setuptools:
+	(cd software &&\
+	wget --no-check-certificate https://pypi.python.org/packages/source/s/setuptools/setuptools-1.1.6.tar.gz &&\
+	tar zxvf setuptools-1.1.6.tar.gz &&\
+	cd setuptools-1.1.6 &&\
+	python setup.py install)
+
+pip: setuptools
 	(cd software &&\
 	wget --no-check-certificate https://pypi.python.org/packages/source/p/pip/pip-1.4.1.tar.gz &&\
 	tar zxvf pip-1.4.1.tar.gz &&\
 	cd pip-1.4.1 &&\
 	python setup.py install)
+
