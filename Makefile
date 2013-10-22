@@ -12,9 +12,11 @@ emacs:
 	wget http://ftpmirror.gnu.org/emacs/emacs-24.3.tar.gz &&\
 	tar zxvf emacs-24.3.tar.gz &&\
 	cd emacs-24.3 && ./configure --prefix="$(prefix)" --with-xpm=no --with-gif=no && make -j4 && make install)
+	rehash
 
 tmux:
 	sh tmux_local_install.sh
+	rehash
 
 config:
 	(cd $(HOME) && git clone https://github.com/cedricporter/vim-emacs-setting.git)
@@ -28,6 +30,7 @@ python27:
 	tar zxvf Python-2.7.5.tgz &&\
 	cd Python-2.7.5 &&\
 	./configure --prefix="$(prefix)" && make -j4 && make install)
+	rehash
 
 setuptools:
 	(cd software &&\
@@ -35,6 +38,7 @@ setuptools:
 	tar zxvf setuptools-1.1.6.tar.gz &&\
 	cd setuptools-1.1.6 &&\
 	python setup.py install)
+	rehash
 
 pip: python27 setuptools
 	(cd software &&\
@@ -42,6 +46,7 @@ pip: python27 setuptools
 	tar zxvf pip-1.4.1.tar.gz &&\
 	cd pip-1.4.1 &&\
 	python setup.py install)
+	rehash
 
 trash-cli:
 	pip install trash-cli
