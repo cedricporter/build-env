@@ -1,3 +1,5 @@
+# Make by Hua Liang[Stupid ET]
+
 prefix = $(HOME)/local
 
 all: emacs tmux config ohmyzsh htop 
@@ -23,7 +25,6 @@ ohmyzsh:
 htop:
 	apt-get source htop
 
-
 python27:
 	(cd software &&\
 	wget http://www.python.org/ftp/python/2.7.5/Python-2.7.5.tgz &&\
@@ -31,4 +32,9 @@ python27:
 	cd Python-2.7.5 &&\
 	./configure --prefix="$(prefix)" && make -j4 && make install)
 
-
+pip:
+	(cd software &&\
+	wget https://pypi.python.org/packages/source/p/pip/pip-1.4.1.tar.gz &&\
+	tar zxvf pip-1.4.1.tar.gz &&\
+	cd pip-1.4.1 &&\
+	python setup.py install)
