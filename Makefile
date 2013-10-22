@@ -12,10 +12,7 @@ emacs:
 	cd emacs-24.3 && ./configure --prefix="$(prefix)" --with-xpm=no --with-gif=no && make -j4 && make install)
 
 tmux:
-	(cd software &&\
-	wget http://downloads.sourceforge.net/tmux/tmux-1.8.tar.gz &&\
-	tar zxvf tmux-1.8.tar.gz &&\
-	cd tmux-1.8 && ./configure --prefix="$(prefix)" && make -j4 && make install)
+	sh tmux_local_install.sh
 
 config:
 	git clone https://github.com/cedricporter/vim-emacs-setting.git
