@@ -1,6 +1,6 @@
 prefix = $(HOME)/local
 
-all: emacs tmux config
+all: emacs tmux config ohmyzsh
 
 test:
 	echo $(prefix)
