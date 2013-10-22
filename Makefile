@@ -1,6 +1,6 @@
 prefix = $(HOME)/local
 
-all: emacs tmux config ohmyzsh
+all: emacs tmux config ohmyzsh htop 
 
 test:
 	echo $(prefix)
@@ -20,6 +20,15 @@ config:
 ohmyzsh:
 	wget --no-check-certificate https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh
 
+htop:
+	apt-get source htop
 
+
+python27:
+	(cd software &&\
+	wget http://www.python.org/ftp/python/2.7.5/Python-2.7.5.tgz &&\
+	tar zxvf Python-2.7.5 &&\
+	cd Python-2.7.5 &&\
+	./configure --prefix="$(prefix)" && make -j4 && make install)
 
 
