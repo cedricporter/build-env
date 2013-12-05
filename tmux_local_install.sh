@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# from https://gist.github.com/ryin/3106801
+
 # Script for installing tmux on systems where you don't have root access.
 # tmux will be installed in $HOME/local/bin.
 # It's assumed that wget and a C/C++ compiler are installed.
