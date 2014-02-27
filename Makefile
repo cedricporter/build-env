@@ -5,7 +5,7 @@ prefix = $(HOME)/.local
 all: emacs tmux config ohmyzsh pip
 
 folder:
-	mkdir -p $(prefix)
+	mkdir -p $(prefix) software
 
 test:
 	echo $(prefix)
@@ -13,13 +13,13 @@ test:
 ncurses: folder
 	(cd software && wget ftp://ftp.gnu.org/gnu/ncurses/ncurses-5.9.tar.gz &&\
 	tar xvzf ncurses-5.9.tar.gz && cd ncurses-5.9 &&\
-	./configure --prefix=$(prefix) && make -j4 && make install)
+	./configure --prefix=$(prefix) && make -j8 && make install)
 
 emacs: folder ncurses
 	(cd software &&\
 	wget http://ftpmirror.gnu.org/emacs/emacs-24.3.tar.gz &&\
 	tar zxvf emacs-24.3.tar.gz &&\
-	cd emacs-24.3 && ./configure CFLAGS="-I$HOME/.local/include -I$HOME/.local/include/ncurses" LDFLAGS="-L$HOME/.local/lib -L$HOME/.local/include/ncurses -L$HOME/.local/include" --prefix="$(prefix)" --with-xpm=no --with-gif=no && make -j4 && make install)
+	cd emacs-24.3 && ./configure CFLAGS="-I$HOME/.local/include -I$HOME/.local/include/ncurses" LDFLAGS="-L$HOME/.local/lib -L$HOME/.local/include/ncurses -L$HOME/.local/include" --prefix="$(prefix)" --with-xpm=no --with-gif=no && make -j8 && make install)
 	rehash
 
 tmux:
