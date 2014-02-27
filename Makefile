@@ -1,4 +1,5 @@
 # Make by Hua Liang[Stupid ET]
+# Website: http://EverET.org
 
 prefix = $(HOME)/.local
 
