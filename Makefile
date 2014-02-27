@@ -20,7 +20,7 @@ emacs: folder ncurses
 	(cd software &&\
 	wget http://ftpmirror.gnu.org/emacs/emacs-24.3.tar.gz &&\
 	tar zxvf emacs-24.3.tar.gz &&\
-	cd emacs-24.3 && ./configure CFLAGS="-I$HOME/.local/include -I$HOME/.local/include/ncurses" LDFLAGS="-L$HOME/.local/lib -L$HOME/.local/include/ncurses -L$HOME/.local/include" --prefix="$(prefix)" --with-xpm=no --with-gif=no && make -j8 && make install)
+	cd emacs-24.3 && ./configure CFLAGS="-I$(prefix)/include -I$(prefix)/include/ncurses" LDFLAGS="-L$(prefix)/lib -L$(prefix)/include/ncurses -L$(prefix)/include" --prefix="$(prefix)" --with-xpm=no --with-gif=no && make -j8 && make install)
 	rehash
 
 tmux:
