@@ -11,7 +11,7 @@ folder: $(prefix) software
 test:
 	echo $(prefix)
 
-ncurses: folder
+ncurses: folder $(prefix)/include/ncurses
 	(cd software && wget ftp://ftp.gnu.org/gnu/ncurses/ncurses-5.9.tar.gz &&\
 	tar xvzf ncurses-5.9.tar.gz && cd ncurses-5.9 &&\
 	./configure --prefix=$(prefix) && make -j8 && make install)
