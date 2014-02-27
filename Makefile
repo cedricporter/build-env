@@ -5,7 +5,7 @@ prefix = $(HOME)/.local
 
 all: emacs tmux config ohmyzsh pip
 
-folder:
+folder: $(prefix) software
 	mkdir -p $(prefix) software
 
 test:
